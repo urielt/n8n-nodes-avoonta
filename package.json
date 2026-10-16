@@ -1,0 +1,58 @@
+{
+	"name": "n8n-nodes-avoonta",
+	"version": "1.0.1",
+	"description": "Avoonta for n8n: your AI voice agent calls a new lead in seconds, and every finished call comes back as a trigger.",
+	"license": "MIT",
+	"homepage": "https://avoonta.com/docs/",
+	"keywords": [
+		"n8n-community-node-package",
+		"n8n",
+		"avoonta",
+		"ai voice agent",
+		"speed to lead"
+	],
+	"author": {
+		"name": "Avoonta",
+		"email": "support@avoonta.com"
+	},
+	"scripts": {
+		"build": "n8n-node build",
+		"dev": "n8n-node dev",
+		"lint": "n8n-node lint",
+		"lint:fix": "n8n-node lint --fix",
+		"test": "node --test test/nodes.test.js",
+		"prepublishOnly": "npm run lint && npm run build && npm test"
+	},
+	"files": [
+		"dist",
+		"!dist/tsconfig.tsbuildinfo"
+	],
+	"n8n": {
+		"n8nNodesApiVersion": 1,
+		"strict": true,
+		"credentials": [
+			"dist/credentials/AvoontaApi.credentials.js"
+		],
+		"nodes": [
+			"dist/nodes/Avoonta/Avoonta.node.js",
+			"dist/nodes/AvoontaTrigger/AvoontaTrigger.node.js"
+		]
+	},
+	"devDependencies": {
+		"@n8n/node-cli": "0.52.4",
+		"eslint": "9.32.0",
+		"n8n-workflow": "2.43.4",
+		"prettier": "3.6.2",
+		"typescript": "5.9.2"
+	},
+	"peerDependencies": {
+		"n8n-workflow": "*"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/urielt/n8n-nodes-avoonta.git"
+	},
+	"bugs": {
+		"url": "https://github.com/urielt/n8n-nodes-avoonta/issues"
+	}
+}
